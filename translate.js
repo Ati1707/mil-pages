@@ -26,22 +26,14 @@ const translations = {
         formNachrichtPlaceholder: "Nachricht",
         contactFormSubmitButton: "Senden",
         infoBarAddressLabel: "Adresse",
-        infoBarAddressDetails: "Stolberger Str. 317<br>50933 Köln", // Keep HTML if needed
+        infoBarAddressDetails: "Zwischen den Wegen 11<br>63820 Elsenfeld", // Keep HTML if needed
         infoBarOpeningLabel: "Öffnungszeiten",
-        infoBarOpeningDetails: "Montag-Freitag<br>09:00-17:00 Uhr", // Keep HTML if needed
+        infoBarOpeningDetails: "", // Keep HTML if needed
         infoBarEmailLabel: "E-Mail",
-        infoBarEmailLink: "info@aabf.de",
+        infoBarEmailLink: "",
         infoBarPhoneLabel: "Telefon",
-        infoBarPhoneLink: "+49(0)221/94 98 56 - 0",
-        directionsHeadline: "Besuchen Sie uns",
-        directionsDbHeadline: "Anreise mit der Deutschen Bundesbahn",
-        directionsDbText: "Am Kölner Hauptbahnhof die S-Bahn-Linien 12, 13 oder 19 (Linie 13 zeitweise), 3 Stationen bis zur Haltestelle Müngersdorf Technologiepark fahren. Fahrtzeit ca. 8 Minuten, anschließender Fußweg ca. 10-12 Minuten (siehe Stadtplan).",
-        directionsOvHeadline: "Anreise mit öffentlichen Verkehrsmitteln",
-        directionsOvText: "Am Kölner Hauptbahnhof mit den U-Bahn-Linien 18 oder 16 bis Neumarkt. Am Neumarkt mit der Straßenbahn-Linie 1 bis Haltestelle Eupener Straße. Fahrtzeit ca. 25 Minuten, anschließender Fußweg ca. 10-12 Minuten (s. Stadtplan).",
-        directionsCarHeadline: "Anreise mit dem Auto",
-        directionsCarText: "Autobahn A 1, Ausfahrt Köln-Lövenich, Nr.: 103 Ab dort auf die Aachener Straße Richtung Stadtmitte/Zentrum fahren und die obige Wegbeschreibung laut Straßenplan berücksichtigen. Falls Sie ein Navigationsgerät besitzen, beachten Sie bitte die Wegbeschreibung für die Stolberger Straße für den Stadtteil BRAUNSFELD.",
-        // Optional Footer
-        footerCopyright: "© 2024 Alevitische Gemeinde Kreis Miltenberg e.V. Alle Rechte vorbehalten."
+        infoBarPhoneLink: "",
+        footerCopyright: "© 2025 Alevitische Gemeinde Kreis Miltenberg e.V. Alle Rechte vorbehalten."
     },
     // Turkish translations
     tr: {
@@ -69,22 +61,16 @@ const translations = {
         formNachrichtPlaceholder: "Mesaj",
         contactFormSubmitButton: "Gönder",
         infoBarAddressLabel: "Adres",
-        infoBarAddressDetails: "Stolberger Str. 317<br>50933 Köln", // Keep address
+        infoBarAddressDetails: "", // Keep address
         infoBarOpeningLabel: "Çalışma Saatleri",
-        infoBarOpeningDetails: "Pazartesi-Cuma<br>09:00-17:00", // Translate days/times if needed
+        infoBarOpeningDetails: "", // Translate days/times if needed
         infoBarEmailLabel: "E-posta",
-        infoBarEmailLink: "info@aabf.de", // Keep link
+        infoBarEmailLink: "", // Keep link
         infoBarPhoneLabel: "Telefon",
-        infoBarPhoneLink: "+49(0)221/94 98 56 - 0", // Keep number
+        infoBarPhoneLink: "", // Keep number
         directionsHeadline: "Bizi Ziyaret Edin",
-        directionsDbHeadline: "Alman Demiryolları (DB) ile Ulaşım",
-        directionsDbText: "Köln Merkez İstasyonu'ndan S-Bahn hatları 12, 13 veya 19 (hat 13 zaman zaman) ile 3 durak sonra Müngersdorf Teknoloji Parkı durağına gidin. Yolculuk süresi yaklaşık 8 dakika, ardından yaklaşık 10-12 dakika yürüyüş mesafesi (şehir planına bakın).",
-        directionsOvHeadline: "Toplu Taşıma ile Ulaşım",
-        directionsOvText: "Köln Merkez İstasyonu'ndan U-Bahn hatları 18 veya 16 ile Neumarkt'a gidin. Neumarkt'ta tramvay hattı 1 ile Eupener Straße durağına gidin. Yolculuk süresi yaklaşık 25 dakika, ardından yaklaşık 10-12 dakika yürüyüş mesafesi (şehir planına bakın).",
-        directionsCarHeadline: "Araba ile Ulaşım",
-        directionsCarText: "Otoban A 1, Köln-Lövenich çıkışı, No.: 103. Oradan Aachener Straße üzerinden şehir merkezi/merkez yönüne gidin ve yukarıdaki yol tarifini şehir planına göre takip edin. Eğer bir navigasyon cihazınız varsa, lütfen Stolberger Straße için BRAUNSFELD şehir bölümü yol tarifini dikkate alın.",
-        // Optional Footer
-        footerCopyright: "© 2024 Miltenberg Alevi Toplumu e.V. Tüm hakları saklıdır."
+
+        footerCopyright: "© 2025 Miltenberg Alevi Toplumu e.V. Tüm hakları saklıdır."
     }
 };
 
