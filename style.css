@@ -240,16 +240,16 @@ main {
 
 .contact-info-bar.new-info-bar .info-items {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around; /* Adjust to space-between if preferred */
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px; /* Adjust gap as needed */
 }
 
 .contact-info-bar.new-info-bar .info-item {
     text-align: center;
-    flex-basis: 30%;
-    min-width: 180px;
+    flex-basis: 22%; /* Adjusted for four items */
+    min-width: 180px; /* Minimum width before wrapping */
 }
 
 .contact-info-bar.new-info-bar .info-item i {
@@ -291,7 +291,10 @@ main {
     .contact-form-section.new-layout .form-intro { flex-basis: auto; text-align: center; padding-top: 0; }
     .contact-form.new-form { flex-basis: auto; width: 100%; max-width: 600px; }
 
-    .contact-info-bar.new-info-bar .info-item { flex-basis: 45%; }
+    .contact-info-bar.new-info-bar .info-item {
+        flex-basis: 45%; /* Still aim for 2 items per row */
+        margin-bottom: 25px; /* Add some bottom margin when wrapped */
+    }
 }
 
 @media (max-width: 768px) {
@@ -305,8 +308,11 @@ main {
     .contact-form.new-form textarea { margin-bottom: 15px; }
     .contact-form-section.new-layout .form-intro h2 { font-size: 1.6em; }
 
-    .contact-info-bar.new-info-bar .info-item { flex-basis: 80%; margin-bottom: 20px; }
-     .contact-info-bar.new-info-bar .info-items { gap: 15px; }
+    .contact-info-bar.new-info-bar .info-item {
+        flex-basis: 80%; /* Still mostly 1 item per row */
+        margin-bottom: 20px;
+    }
+    .contact-info-bar.new-info-bar .info-items { gap: 15px; }
 
     .org-info h1 { font-size: 1.5em; }
 }
