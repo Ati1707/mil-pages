@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de"> <!-- Default to German -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Kontakt - Alevitische Gemeinde Kreis Miltenberg e.V.</title> <!-- Updated Title -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo-small">
+                <a href="index.html"> <!-- Link back to index -->
+                    <img src="assets/alevi_icon.jpg" alt="Alevitische Gemeinde Logo Klein">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" id="nav-start">Start</a></li> <!-- Link to index -->
+                    <li class="dropdown"><a href="#" id="nav-about">Über Uns <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="dropdown"><a href="#" id="nav-education">Bildung <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="active"><a href="kontakt.html" id="nav-contact">Kontakt</a></li> <!-- Active link -->
+                    <!-- START: Language Switcher -->
+                    <li class="language-switcher">
+                        <a href="#" class="current-lang" aria-haspopup="true" aria-expanded="false" aria-label="Sprache wechseln">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/de.svg" alt="Deutsch" class="lang-flag" id="current-lang-flag">
+                            <i class="fas fa-chevron-down lang-arrow"></i>
+                        </a>
+                        <div class="language-dropdown">
+                            <a href="#" class="lang-option" data-lang="de" aria-label="Sprache auf Deutsch wechseln">
+                                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/de.svg" alt="" class="lang-flag-small"> Deutsch
+                            </a>
+                            <a href="#" class="lang-option" data-lang="tr" aria-label="Sprache auf Türkisch wechseln">
+                                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/tr.svg" alt="" class="lang-flag-small"> Türkçe
+                            </a>
+                        </div>
+                    </li>
+                    <!-- END: Language Switcher -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-main-title" id="contact-main-title">Kontakt</h1>
+
+            <section class="contact-form-section new-layout">
+                <div class="form-intro">
+                    <h2 id="contact-form-headline">Schreiben Sie uns.</h2>
+                    <!-- Optional: Add introductory text here -->
+                </div>
+                <form action="#" method="POST" class="contact-form new-form">
+                    <!-- Backend needed for form submission -->
+                    <div class="form-grid">
+                        <input type="text" id="form-vorname" name="vorname" placeholder="Vorname" required>
+                        <input type="text" id="form-nachname" name="nachname" placeholder="Nachname" required>
+                        <input type="email" id="form-email" name="email" placeholder="E-Mail" required>
+                        <input type="tel" id="form-telefon" name="telefon" placeholder="Telefon">
+                    </div>
+                    <textarea id="form-nachricht" name="nachricht" rows="6" placeholder="Nachricht" required></textarea>
+                    <div class="form-submit-area">
+                         <button type="submit" class="btn-submit" id="contact-form-submit-button">Senden <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </form>
+            </section>
+        </div> <!-- Close main container -->
+
+        <section class="contact-info-bar">
+            <div class="container">
+                <div class="info-items">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <strong id="info-bar-address-label">Adresse</strong>
+                        <!-- Replace with actual address -->
+                        <p id="info-bar-address-details">Zwischen den Wegen 11<br>63820 Elsenfeld</p>
+                    </div>
+                    <div class="info-item">
+                    </div>
+                    <div class="info-item">
+                        <i class="far fa-envelope"></i> <!-- Use far for regular envelope -->
+                        <strong id="info-bar-email-label">E-Mail</strong>
+                        <!-- Replace with actual email -->
+                        <p><a href="mailto:" id="info-bar-email"></a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i> <!-- Use phone-alt -->
+                        <strong id="info-bar-phone-label">Telefon</strong>
+                         <!-- Replace with actual phone -->
+                        <p><a href="tel:" id="info-bar-phone"></a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Optional Footer -->
+    <!--
+    <footer>
+        <div class="container">
+            <p id="footer-copyright">© 2024 Alevitische Gemeinde Kreis Miltenberg e.V. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+    -->
+
+    <!-- Translation Script -->
+    <script src="translate.js"></script>
+
+</body>
+</html>
