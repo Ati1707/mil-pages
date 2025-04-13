@@ -1,9 +1,150 @@
-/* --- Remove old Contact/Directions Styles if present --- */
-/* .contact-content, .contact-details-grid, .contact-detail, etc. */
-/* .directions-section, .directions-content, etc. */
+/* --- General Styles & Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1140px; /* Slightly wider container for this layout */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* --- Header --- */
+header {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    background-color: #fff;
+    flex-shrink: 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-small img {
+    height: 45px;
+    display: block;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+}
+
+header nav li {
+    margin-left: 25px;
+}
+
+header nav a {
+    text-transform: uppercase;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #555;
+    padding: 5px 0;
+    position: relative;
+    display: inline-block;
+}
+
+header nav a:hover,
+header nav li.active a { /* Combine hover and active */
+    color: #c00;
+}
+
+header nav .dropdown i {
+    font-size: 0.7em;
+    margin-left: 4px;
+    position: relative;
+    top: -1px;
+}
+
+/* --- Language Switcher Styles --- */
+.language-switcher {
+    position: relative;
+    margin-left: 25px;
+}
+.language-switcher .current-lang {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    gap: 5px;
+    text-transform: none;
+}
+.language-switcher .current-lang:hover { color: #555; }
+.language-switcher .current-lang:focus-visible { outline: none; border: 1px dashed #555; border-radius: 2px; }
+.lang-flag { height: 14px; width: auto; display: inline-block; vertical-align: middle; }
+.lang-arrow { font-size: 0.7em; color: #666; transition: transform 0.2s ease-in-out; display: inline-block; }
+.language-dropdown { display: none; position: absolute; top: 100%; right: 0; background-color: #fff; border: 1px solid #ddd; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 4px; padding: 5px 0; min-width: 120px; z-index: 100; margin-top: 0; }
+.language-switcher:hover .language-dropdown, .language-switcher .current-lang:focus-visible + .language-dropdown, .language-switcher .language-dropdown:hover { display: block; }
+.language-switcher:hover .lang-arrow, .language-switcher .current-lang:focus-visible .lang-arrow { transform: rotate(180deg); }
+.lang-option { display: flex !important; align-items: center; gap: 8px; padding: 8px 15px; color: #333; font-size: 0.9em; white-space: nowrap; text-decoration: none; text-transform: uppercase; font-weight: 500; }
+.lang-option:hover { background-color: #f5f5f5; color: #c00; }
+
+/* CORRECTED FLAG SIZE */
+.lang-flag-small {
+    height: 12px; /* <--- Corrected height */
+    width: auto;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* --- Main Content --- */
+main {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    flex-grow: 1;
+}
+
+/* Index Page Specific */
+.org-info {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.logo-large {
+    height: 100px;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+.org-info h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
 
 
-/* --- NEW Kontakt Page Styles --- */
+/* --- Kontakt Page Styles --- */
 .page-main-title {
     text-align: center;
     font-size: 2.5em;
@@ -43,7 +184,7 @@
 
 .contact-form.new-form .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
     gap: 20px;
     margin-bottom: 20px;
 }
@@ -54,9 +195,9 @@
 .contact-form.new-form textarea {
     width: 100%;
     padding: 15px;
-    border: none;
+    border: none; /* Remove border */
     border-radius: 4px;
-    background-color: #f8f9fa; /* Light grey */
+    background-color: #f8f9fa; /* Light grey background for fields */
     font-size: 0.95em;
     color: #333;
     font-family: inherit;
@@ -67,21 +208,21 @@
 .contact-form.new-form input[type="tel"]::placeholder,
 .contact-form.new-form textarea::placeholder {
     color: #999;
-    opacity: 1;
+    opacity: 1; /* Ensure placeholder is visible */
 }
 
 .contact-form.new-form textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 120px; /* Minimum height for message */
     margin-bottom: 20px;
 }
 
 .contact-form.new-form .form-submit-area {
-    text-align: right;
+    text-align: right; /* Align button to the right */
 }
 
 .contact-form.new-form .btn-submit {
-    background-color: #d9534f; /* Red */
+    background-color: #d9534f; /* Red button color from screenshot */
     color: white;
     padding: 12px 25px;
     border: none;
@@ -90,16 +231,23 @@
     font-size: 1em;
     font-weight: 500;
     transition: background-color 0.3s ease;
-    display: inline-flex;
+    display: inline-flex; /* Align icon and text */
     align-items: center;
     gap: 8px;
 }
-.contact-form.new-form .btn-submit i { font-size: 0.9em; }
-.contact-form.new-form .btn-submit:hover { background-color: #c9302c; }
+
+.contact-form.new-form .btn-submit i {
+    font-size: 0.9em;
+}
+
+
+.contact-form.new-form .btn-submit:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
 
 /* New Info Bar */
 .contact-info-bar.new-info-bar {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Light grey background */
     padding: 40px 0;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee; /* Added bottom border */
@@ -122,7 +270,7 @@
 
 .contact-info-bar.new-info-bar .info-item i {
     font-size: 1.8em; /* Slightly smaller icons */
-    color: #d9534f;
+    color: #d9534f; /* Red icon color */
     margin-bottom: 15px;
     display: block; /* Center icon better */
 }
@@ -147,6 +295,7 @@
     text-decoration: none;
 }
 .contact-info-bar.new-info-bar .info-item a:hover { color: #d9534f; }
+
 
 /* --- Responsive --- */
 @media (max-width: 992px) {
@@ -184,7 +333,7 @@
     header nav ul { gap: 10px 10px; padding: 0; }
     .language-switcher { margin-left: 10px; }
 
-    .page-main-title { font-size: 2em; margin-bottom: 30px;} /* Typo fixed */
+    .page-main-title { font-size: 2em; margin-bottom: 30px;}
 
     /* Stack form grid inputs */
     .contact-form.new-form .form-grid {
