@@ -5,9 +5,11 @@ const translations = {
         // --- General ---
         pageTitleHome: "Alevitische Gemeinde Kreis Miltenberg e.V.",
         pageTitleContact: "Kontakt - Alevitische Gemeinde Kreis Miltenberg e.V.",
+        pageTitleEvents: "Veranstaltungen - Alevitische Gemeinde Kreis Miltenberg e.V.", // New
         navStart: "Start",
         navAbout: "Über Uns",
         navEducation: "Bildung",
+        navEvents: "Veranstaltungen", // New
         navContact: "Kontakt",
         currentLangLabelBase: "Sprache wechseln",
         currentLangLabelActive: "Sprache wechseln, aktuell Deutsch",
@@ -26,18 +28,21 @@ const translations = {
         formNachrichtPlaceholder: "Nachricht",
         contactFormSubmitButton: "Senden",
         infoBarAddressLabel: "Adresse",
-        infoBarAddressDetails: "Zwischen den Wegen 11<br>63820 Elsenfeld", // HTML kept
+        infoBarAddressDetails: "Zwischen den Wegen 11<br>63820 Elsenfeld",
         infoBarEmailLabel: "E-Mail",
-        infoBarEmailLink: "", // Empty
+        infoBarEmailLink: "",
         infoBarPhoneLabel: "Telefon",
-        infoBarPhoneLink: "", // Empty
-        // New Bereavement Section
+        infoBarPhoneLink: "",
         infoBarBereavementLabel: "Bei Sterbefall",
-        bereavementContact1Text: "Name 1: +49 123 4567890", // Replace with actual info
-        bereavementContact1Tel: "+491234567890",          // Replace with actual number (cleaned)
-        bereavementContact2Text: "Name 2: +49 987 6543210", // Replace with actual info
-        bereavementContact2Tel: "+499876543210",          // Replace with actual number (cleaned)
-        // Footer
+        bereavementContact1Text: "Placeholder Name 1: +49 123 4567890",
+        bereavementContact1Tel: "+491234567890",
+        bereavementContact2Text: "Placeholder Name 2: +49 987 6543210",
+        bereavementContact2Tel: "+499876543210",
+        // --- Events Page Specific ---
+        eventsMainTitle: "Veranstaltungen", // New
+        eventsSubheadline: "Halbjährliche Veranstaltungen", // New
+        // Note: Individual event descriptions aren't translated here, add keys if needed
+        // --- Footer ---
         footerCopyright: "© 2025 Alevitische Gemeinde Kreis Miltenberg e.V. Alle Rechte vorbehalten."
     },
     // Turkish translations
@@ -45,9 +50,11 @@ const translations = {
          // --- General ---
         pageTitleHome: "Miltenberg Alevi Toplumu e.V.",
         pageTitleContact: "İletişim - Miltenberg Alevi Toplumu e.V.",
+        pageTitleEvents: "Etkinlikler - Miltenberg Alevi Toplumu e.V.", // New
         navStart: "Anasayfa",
         navAbout: "Hakkımızda",
         navEducation: "Eğitim",
+        navEvents: "Etkinlikler", // New
         navContact: "İletişim",
         currentLangLabelBase: "Dili değiştir",
         currentLangLabelActive: "Dili değiştir, mevcut Türkçe",
@@ -68,16 +75,18 @@ const translations = {
         infoBarAddressLabel: "Adres",
         infoBarAddressDetails: "Zwischen den Wegen 11<br>63820 Elsenfeld", // Keep German address or translate
         infoBarEmailLabel: "E-posta",
-        infoBarEmailLink: "", // Empty
+        infoBarEmailLink: "",
         infoBarPhoneLabel: "Telefon",
-        infoBarPhoneLink: "", // Empty
-         // New Bereavement Section
-        infoBarBereavementLabel: "Vefat Durumunda", // Example translation
-        bereavementContact1Text: "İsim 1: +49 123 4567890", // Translate "Name 1:" if desired
-        bereavementContact1Tel: "+491234567890",          // Keep number
-        bereavementContact2Text: "İsim 2: +49 987 6543210", // Translate "Name 2:" if desired
-        bereavementContact2Tel: "+499876543210",          // Keep number
-        // Footer
+        infoBarPhoneLink: "",
+        infoBarBereavementLabel: "Vefat Durumunda",
+        bereavementContact1Text: "Placeholder Name 1: +49 123 4567890",
+        bereavementContact1Tel: "+491234567890",
+        bereavementContact2Text: "Placeholder Name 2: +49 987 6543210",
+        bereavementContact2Tel: "+499876543210",
+         // --- Events Page Specific ---
+        eventsMainTitle: "Etkinlikler", // New
+        eventsSubheadline: "Yarı Yıllık Etkinlikler", // New
+        // --- Footer ---
         footerCopyright: "© 2025 Miltenberg Alevi Toplumu e.V. Tüm hakları saklıdır."
     }
 };
@@ -89,6 +98,7 @@ const elementsToTranslate = {
     navStart: document.getElementById('nav-start'),
     navAbout: document.getElementById('nav-about'),
     navEducation: document.getElementById('nav-education'),
+    navEvents: document.getElementById('nav-events'), // New
     navContact: document.getElementById('nav-contact'),
     footerCopyright: document.getElementById('footer-copyright'),
     // Index Page Specific
@@ -108,10 +118,12 @@ const elementsToTranslate = {
     infoBarEmail: document.getElementById('info-bar-email'),
     infoBarPhoneLabel: document.getElementById('info-bar-phone-label'),
     infoBarPhone: document.getElementById('info-bar-phone'),
-    // New Elements
     infoBarBereavementLabel: document.getElementById('info-bar-bereavement-label'),
     bereavementContact1Link: document.getElementById('bereavement-contact1-link'),
     bereavementContact2Link: document.getElementById('bereavement-contact2-link'),
+    // Events Page Specific
+    eventsMainTitle: document.getElementById('events-main-title'), // New
+    eventsSubheadline: document.getElementById('events-subheadline'), // New
 };
 
 // --- Language Switcher Elements ---
@@ -130,6 +142,7 @@ const flagUrls = {
 function getCurrentPage() {
     if (document.getElementById('org-title')) { return 'home'; }
     if (document.getElementById('contact-main-title')) { return 'contact'; }
+    if (document.getElementById('events-main-title')) { return 'events'; } // New
     return 'unknown';
 }
 
@@ -152,6 +165,8 @@ function setLanguage(lang) {
             pageTitleElement.innerText = currentTranslations.pageTitleHome;
         } else if (currentPage === 'contact' && currentTranslations.pageTitleContact) {
             pageTitleElement.innerText = currentTranslations.pageTitleContact;
+        } else if (currentPage === 'events' && currentTranslations.pageTitleEvents) { // New
+             pageTitleElement.innerText = currentTranslations.pageTitleEvents;
         } else {
              pageTitleElement.innerText = currentTranslations.pageTitleHome || "Alevitische Gemeinde";
         }
@@ -173,7 +188,7 @@ function setLanguage(lang) {
                          element.placeholder = currentTranslations[placeholderKey];
                      }
                  }
-                // Handle specific Links (Email, Phone, Bereavement)
+                // Handle specific Links
                 else if (key === 'infoBarEmail') {
                      const linkValue = currentTranslations.infoBarEmailLink;
                      element.href = linkValue ? 'mailto:' + linkValue : '#';
@@ -183,13 +198,13 @@ function setLanguage(lang) {
                      const phoneLink = (linkValue || '').replace(/[^+\d]/g, '');
                      element.href = phoneLink ? 'tel:' + phoneLink : '#';
                      element.innerText = linkValue || '';
-                } else if (key === 'bereavementContact1Link') { // NEW
+                } else if (key === 'bereavementContact1Link') {
                     const telKey = 'bereavementContact1Tel';
                     const textKey = 'bereavementContact1Text';
                     const telNum = (currentTranslations[telKey] || '').replace(/[^+\d]/g, '');
                     element.href = telNum ? 'tel:' + telNum : '#';
                     element.innerText = currentTranslations[textKey] || '';
-                } else if (key === 'bereavementContact2Link') { // NEW
+                } else if (key === 'bereavementContact2Link') {
                     const telKey = 'bereavementContact2Tel';
                     const textKey = 'bereavementContact2Text';
                     const telNum = (currentTranslations[telKey] || '').replace(/[^+\d]/g, '');
@@ -211,7 +226,7 @@ function setLanguage(lang) {
                      element.innerHTML = (translationValue || '') + iconHTML;
                  }
                 // Default: update innerText
-                else if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA' && !key.endsWith('Link')) {
+                else if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA' && !key.endsWith('Link') && !key.endsWith('Tel') && !key.endsWith('Text')) {
                     element.innerText = translationValue;
                 }
             }
