@@ -1,6 +1,6 @@
 // --- Translation Data ---
 const translations = {
-    // German translations
+    // German translations (Copied from user's snippet)
     de: {
         // --- General ---
         pageTitleHome: "Alevitische Gemeinde Kreis Miltenberg e.V.",
@@ -26,16 +26,17 @@ const translations = {
         formNachrichtPlaceholder: "Nachricht",
         contactFormSubmitButton: "Senden",
         infoBarAddressLabel: "Adresse",
-        infoBarAddressDetails: "Zwischen den Wegen 11<br>63820 Elsenfeld", // Keep HTML if needed
-        infoBarOpeningLabel: "Öffnungszeiten",
-        infoBarOpeningDetails: "", // Keep HTML if needed
+        infoBarAddressDetails: "Zwischen den Wegen 11<br>63820 Elsenfeld", // HTML kept
+        // infoBarOpeningLabel: "Öffnungszeiten", // Commented out as removed from HTML
+        // infoBarOpeningDetails: "", // Commented out
         infoBarEmailLabel: "E-Mail",
-        infoBarEmailLink: "",
+        infoBarEmailLink: "", // Empty as per snippet
         infoBarPhoneLabel: "Telefon",
-        infoBarPhoneLink: "",
+        infoBarPhoneLink: "", // Empty as per snippet
+        // Removed Directions Keys
         footerCopyright: "© 2025 Alevitische Gemeinde Kreis Miltenberg e.V. Alle Rechte vorbehalten."
     },
-    // Turkish translations
+    // Turkish translations (Derived from the German snippet)
     tr: {
          // --- General ---
         pageTitleHome: "Miltenberg Alevi Toplumu e.V.",
@@ -61,20 +62,20 @@ const translations = {
         formNachrichtPlaceholder: "Mesaj",
         contactFormSubmitButton: "Gönder",
         infoBarAddressLabel: "Adres",
-        infoBarAddressDetails: "", // Keep address
-        infoBarOpeningLabel: "Çalışma Saatleri",
-        infoBarOpeningDetails: "", // Translate days/times if needed
+        infoBarAddressDetails: "Zwischen den Wegen 11<br>63820 Elsenfeld", // Keep German address? Or translate if needed
+        // infoBarOpeningLabel: "Çalışma Saatleri", // Commented out
+        // infoBarOpeningDetails: "", // Commented out
         infoBarEmailLabel: "E-posta",
-        infoBarEmailLink: "", // Keep link
+        infoBarEmailLink: "", // Empty
         infoBarPhoneLabel: "Telefon",
-        infoBarPhoneLink: "", // Keep number
-        directionsHeadline: "Bizi Ziyaret Edin",
-
+        infoBarPhoneLink: "", // Empty
+        // Removed Directions Keys
         footerCopyright: "© 2025 Miltenberg Alevi Toplumu e.V. Tüm hakları saklıdır."
     }
 };
 
 // --- Elements to Translate ---
+// Updated to match current HTML structure (removed directions, opening hours)
 const elementsToTranslate = {
     // General / Shared
     pageTitle: document.getElementById('page-title'),
@@ -95,19 +96,12 @@ const elementsToTranslate = {
     contactFormSubmitButton: document.getElementById('contact-form-submit-button'),
     infoBarAddressLabel: document.getElementById('info-bar-address-label'),
     infoBarAddressDetails: document.getElementById('info-bar-address-details'),
-    infoBarOpeningLabel: document.getElementById('info-bar-opening-label'),
-    infoBarOpeningDetails: document.getElementById('info-bar-opening-details'),
+    // infoBarOpeningLabel: document.getElementById('info-bar-opening-label'), // Commented out
+    // infoBarOpeningDetails: document.getElementById('info-bar-opening-details'), // Commented out
     infoBarEmailLabel: document.getElementById('info-bar-email-label'),
     infoBarEmail: document.getElementById('info-bar-email'), // Link element
     infoBarPhoneLabel: document.getElementById('info-bar-phone-label'),
     infoBarPhone: document.getElementById('info-bar-phone'), // Link element
-    directionsHeadline: document.getElementById('directions-headline'),
-    directionsDbHeadline: document.getElementById('directions-db-headline'),
-    directionsDbText: document.getElementById('directions-db-text'),
-    directionsOvHeadline: document.getElementById('directions-ov-headline'),
-    directionsOvText: document.getElementById('directions-ov-text'),
-    directionsCarHeadline: document.getElementById('directions-car-headline'),
-    directionsCarText: document.getElementById('directions-car-text'),
     // Optional Footer
     footerCopyright: document.getElementById('footer-copyright')
 };
@@ -126,14 +120,10 @@ const flagUrls = {
 
 // --- Function to determine current page (simple check) ---
 function getCurrentPage() {
-    if (document.getElementById('org-title')) { // Element only on index
-        return 'home';
-    } else if (document.getElementById('contact-main-title')) { // Element only on contact
-        return 'contact';
-    }
+    if (document.getElementById('org-title')) { return 'home'; }
+    if (document.getElementById('contact-main-title')) { return 'contact'; }
     return 'unknown';
 }
-
 
 // --- Function to set the language ---
 function setLanguage(lang) {
@@ -155,38 +145,39 @@ function setLanguage(lang) {
         }
     }
 
-
     // --- Update text content for other elements ---
     for (const key in elementsToTranslate) {
         if (key === 'pageTitle') continue; // Skip pageTitle
 
         const element = elementsToTranslate[key];
-        if (element) { // Check if element exists on the current page
+        // *** CRUCIAL CHECK: Only proceed if element exists on the current page ***
+        if (element) {
             const translationValue = currentTranslations[key];
 
             if (translationValue !== undefined) {
-                // Handle Placeholders
-                if (key.startsWith('form') && key.endsWith('Placeholder')) {
-                     // Find the corresponding input/textarea element using the base key
-                     const inputKey = key.replace('Placeholder', '');
-                     const inputElement = elementsToTranslate[inputKey];
-                     if (inputElement) {
-                         inputElement.placeholder = translationValue;
-                     }
+                // Handle Placeholders (using specific keys from translations)
+                if (key === 'formVorname' && currentTranslations.formVornamePlaceholder) {
+                    element.placeholder = currentTranslations.formVornamePlaceholder;
+                } else if (key === 'formNachname' && currentTranslations.formNachnamePlaceholder) {
+                    element.placeholder = currentTranslations.formNachnamePlaceholder;
+                } else if (key === 'formEmail' && currentTranslations.formEmailPlaceholder) {
+                    element.placeholder = currentTranslations.formEmailPlaceholder;
+                } else if (key === 'formTelefon' && currentTranslations.formTelefonPlaceholder) {
+                    element.placeholder = currentTranslations.formTelefonPlaceholder;
+                } else if (key === 'formNachricht' && currentTranslations.formNachrichtPlaceholder) {
+                    element.placeholder = currentTranslations.formNachrichtPlaceholder;
                 }
-                // Handle Links (keep href, update text if needed - e.g., email/phone links often stay the same)
-                else if (element.tagName === 'A' && (key === 'infoBarEmail' || key === 'infoBarPhone')) {
-                     // Example: if you wanted different display text per language
-                     // element.innerText = translationValue;
-                     // Currently keeping link text same as value from translation object
-                     // which contains the actual email/phone
-                     if (key === 'infoBarEmail') element.href = 'mailto:' + currentTranslations.infoBarEmailLink;
-                     if (key === 'infoBarPhone') element.href = 'tel:' + currentTranslations.infoBarPhoneLink.replace(/[^+\d]/g, ''); // Clean tel link
-                     element.innerText = translationValue; // Set link text (e.g., the email address/phone)
-
+                // Handle Links (Set text and href if available)
+                else if (key === 'infoBarEmail') {
+                     element.href = currentTranslations.infoBarEmailLink ? 'mailto:' + currentTranslations.infoBarEmailLink : '';
+                     element.innerText = currentTranslations.infoBarEmailLink || ''; // Display the link or empty
+                } else if (key === 'infoBarPhone') {
+                     const phoneLink = (currentTranslations.infoBarPhoneLink || '').replace(/[^+\d]/g, ''); // Clean tel link
+                     element.href = phoneLink ? 'tel:' + phoneLink : '';
+                     element.innerText = currentTranslations.infoBarPhoneLink || ''; // Display the link or empty
                 }
-                // Handle elements needing HTML (like address/opening hours with <br>)
-                else if (key === 'infoBarAddressDetails' || key === 'infoBarOpeningDetails') {
+                // Handle elements needing HTML (like address with <br>)
+                else if (key === 'infoBarAddressDetails' /* || key === 'infoBarOpeningDetails' */) { // Keep opening hours commented
                     element.innerHTML = translationValue;
                 }
                  // Handle nav items with icons
@@ -199,13 +190,13 @@ function setLanguage(lang) {
                     const iconHTML = ' <i class="fas fa-arrow-right"></i>';
                      element.innerHTML = (translationValue || '') + iconHTML;
                  }
-                // Default: update innerText
-                else {
+                // Default: update innerText for regular elements
+                else if (!key.endsWith('Link') && !key.endsWith('Placeholder')) { // Avoid overwriting placeholders/links again
                     element.innerText = translationValue;
                 }
             }
-        }
-    }
+        } // End if (element) check
+    } // End for loop
 
     // Update main flag image and alt text
     if (currentLangFlag) {
@@ -213,7 +204,7 @@ function setLanguage(lang) {
         currentLangFlag.alt = lang === 'de' ? translations.de.flagAltDe : translations.tr.flagAltTr;
     }
 
-     // Update ARIA labels for accessibility
+     // Update ARIA labels
     if (currentLangLink) {
         currentLangLink.setAttribute('aria-label', currentTranslations.currentLangLabelActive);
     }
@@ -229,13 +220,13 @@ function setLanguage(lang) {
     // Update HTML lang attribute
     htmlTag.lang = lang;
 
-    // Store preference in localStorage
+    // Store preference
     localStorage.setItem('preferredLanguage', lang);
 
     console.log(`Language set to: ${lang} on page: ${currentPage}`);
 }
 
-// --- Event Listeners for Language Options ---
+// --- Event Listeners ---
 languageOptions.forEach(option => {
     option.addEventListener('click', (event) => {
         event.preventDefault();
