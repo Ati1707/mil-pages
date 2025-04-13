@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    max-width: 1140px; /* Slightly wider container for this layout */
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -75,7 +75,7 @@ header nav a {
 }
 
 header nav a:hover,
-header nav li.active a { /* Combine hover and active */
+header nav li.active a {
     color: #c00;
 }
 
@@ -109,7 +109,7 @@ header nav .dropdown i {
 .language-switcher:hover .lang-arrow, .language-switcher .current-lang:focus-visible .lang-arrow { transform: rotate(180deg); }
 .lang-option { display: flex !important; align-items: center; gap: 8px; padding: 8px 15px; color: #333; font-size: 0.9em; white-space: nowrap; text-decoration: none; text-transform: uppercase; font-weight: 500; }
 .lang-option:hover { background-color: #f5f5f5; color: #c00; }
-.lang-flag-small { height: 12px; width: auto; flex-shrink: 0; display: inline-block; vertical-align: middle; } /* Corrected size */
+.lang-flag-small { height: 12px; width: auto; flex-shrink: 0; display: inline-block; vertical-align: middle; }
 
 /* --- Main Content --- */
 main {
@@ -117,6 +117,17 @@ main {
     padding-bottom: 40px;
     flex-grow: 1;
 }
+
+/* Page Main Title (Shared by Contact & Events) */
+.page-main-title {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: #333;
+}
+
 
 /* Index Page Specific */
 .org-info {
@@ -136,15 +147,6 @@ main {
 }
 
 /* --- Kontakt Page Styles --- */
-.page-main-title {
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 50px;
-    color: #333;
-}
-
 /* Form Section */
 .contact-form-section.new-layout {
     display: flex;
@@ -229,7 +231,7 @@ main {
 .contact-form.new-form .btn-submit i { font-size: 0.9em; }
 .contact-form.new-form .btn-submit:hover { background-color: #c9302c; }
 
-/* New Info Bar */
+/* Contact Info Bar */
 .contact-info-bar.new-info-bar {
     background-color: #f8f9fa;
     padding: 40px 0;
@@ -240,16 +242,16 @@ main {
 
 .contact-info-bar.new-info-bar .info-items {
     display: flex;
-    justify-content: space-around; /* Adjust to space-between if preferred */
+    justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 20px; /* Adjust gap as needed */
+    gap: 20px; /* Adjusted gap */
 }
 
 .contact-info-bar.new-info-bar .info-item {
     text-align: center;
     flex-basis: 22%; /* Adjusted for four items */
-    min-width: 180px; /* Minimum width before wrapping */
+    min-width: 180px;
 }
 
 .contact-info-bar.new-info-bar .info-item i {
@@ -272,13 +274,54 @@ main {
     font-size: 0.9em;
     color: #666;
     line-height: 1.5;
-    margin: 0;
+    margin: 0 0 5px 0;
 }
 .contact-info-bar.new-info-bar .info-item a {
     color: #666;
     text-decoration: none;
+    display: block;
 }
 .contact-info-bar.new-info-bar .info-item a:hover { color: #d9534f; }
+
+
+/* --- Veranstaltungen Page Styles --- */
+.events-section {
+    padding: 30px 0 50px 0;
+}
+
+.events-subheadline {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event-list li {
+    padding: 15px 0;
+    border-bottom: 1px dotted #ddd;
+    line-height: 1.7;
+    color: #555;
+}
+
+.event-list li:last-child {
+    border-bottom: none;
+}
+
+.event-list li strong {
+    font-weight: 600;
+    color: #333;
+    margin-right: 8px;
+    display: inline-block;
+    min-width: 180px;
+}
 
 
 /* --- Responsive --- */
@@ -292,8 +335,8 @@ main {
     .contact-form.new-form { flex-basis: auto; width: 100%; max-width: 600px; }
 
     .contact-info-bar.new-info-bar .info-item {
-        flex-basis: 45%; /* Still aim for 2 items per row */
-        margin-bottom: 25px; /* Add some bottom margin when wrapped */
+        flex-basis: 45%;
+        margin-bottom: 25px;
     }
 }
 
@@ -309,12 +352,26 @@ main {
     .contact-form-section.new-layout .form-intro h2 { font-size: 1.6em; }
 
     .contact-info-bar.new-info-bar .info-item {
-        flex-basis: 80%; /* Still mostly 1 item per row */
+        flex-basis: 80%;
         margin-bottom: 20px;
     }
-    .contact-info-bar.new-info-bar .info-items { gap: 15px; }
+     .contact-info-bar.new-info-bar .info-items { gap: 15px; }
 
     .org-info h1 { font-size: 1.5em; }
+
+    /* Events page responsive */
+    .events-subheadline {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+    }
+    .event-list li strong {
+        display: block;
+        margin-bottom: 5px;
+        min-width: 0;
+    }
+     .event-list li {
+        padding: 12px 0;
+    }
 }
 
 /* --- Footer --- */
