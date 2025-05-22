@@ -118,6 +118,24 @@ main {
     flex-grow: 1;
 }
 
+/* --- Under Construction Notice --- */
+.under-construction-notice {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff3cd; /* Light yellow */
+    color: #856404; /* Dark yellow/brown text */
+    border: 1px solid #ffeeba; /* Light yellow border */
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Added some bottom margin for consistency */
+}
+
+.under-construction-notice p { /* Targets the paragraph inside the notice */
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold; /* Makes the text bold */
+}
+
 /* Page Main Title (Shared by Contact & Events) */
 .page-main-title {
     text-align: center;
